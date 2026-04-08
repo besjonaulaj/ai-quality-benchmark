@@ -1,0 +1,29 @@
+[
+  {
+    "task_id": "001",
+    "category": "Factual Accuracy",
+    "prompt": "List the top 3 cities in Kosovo by population.",
+    "ai_response": "1. Pristina, 2. Prizren, 3. Peja.",
+    "evaluation": "FAILED",
+    "reasoning": "The model listed Peja as 3rd, but statistically, Mitrovica or Ferizaj have higher populations depending on the census year used. Precision is required.",
+    "corrected_output": "1. Pristina, 2. Prizren, 3. Gjilan/Ferizaj (Census-dependent)."
+  },
+  {
+    "task_id": "002",
+    "category": "JSON Syntax Logic",
+    "prompt": "Generate a JSON for a user profile.",
+    "ai_response": "{ 'name': 'Besjona', 'role': 'Dev', }",
+    "evaluation": "FAILED",
+    "reasoning": "The model used single quotes (invalid in JSON) and left a trailing comma, which causes parsing errors in strict environments.",
+    "corrected_output": "{ \"name\": \"Besjona\", \"role\": \"Dev\" }"
+  },
+  {
+    "task_id": "003",
+    "category": "Reasoning",
+    "prompt": "If I have 3 shirts and dry them in 3 hours, how long for 30 shirts?",
+    "ai_response": "It will take 30 hours.",
+    "evaluation": "FAILED",
+    "reasoning": "Model failed linear logic. If they are dried together, the time remains constant (3 hours).",
+    "corrected_output": "3 hours (assuming parallel drying)."
+  }
+]
